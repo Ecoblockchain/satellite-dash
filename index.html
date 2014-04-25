@@ -7,6 +7,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
 
 <style>
   body { margin:0; padding:0; }
@@ -32,8 +33,11 @@ var map = L.mapbox.map('map')
     .setView([27.936, -82.562], 9)
     .addLayer(L.mapbox.tileLayer('colemanm.map-h3n78ecg', {
       detectRetina: true
-    }));
+    }))
+    .addControl(L.mapbox.geocoderControl('colemanm.map-h3n78ecg'));
+
 L.control.scale().addTo(map);
+var hash = L.hash(map);
 var mousemove = document.getElementById('mousemove');
 map.on('mousemove', function(e) {
     window[e.type].innerHTML = e.latlng.toString();
