@@ -55,10 +55,11 @@ var map = L.mapbox.map('map')
 L.control.scale().addTo(map);
 
 L.control.layers({
-  'Streets': L.mapbox.tileLayer('colemanm.gga7agbd', { detectRetina: true }).addTo(map)
+  'Outdoors': L.mapbox.tileLayer('colemanm.oc7dbohd', { detectRetina: true }).addTo(map)
   // 'Streets': L.mapbox.tileLayer('colemanm.gga7agbd'), { detectRetina: true })
 }, {
-  'Satellite': L.mapbox.tileLayer('colemanm.map-h3n78ecg', { detectRetina: true })
+  'Satellite': L.mapbox.tileLayer('colemanm.map-h3n78ecg', { detectRetina: true }),
+  'Streets': L.mapbox.tileLayer('colemanm.gga7agb', { detectRetina: true })
 }, {
   collapsed: false
 }).addTo(map);
